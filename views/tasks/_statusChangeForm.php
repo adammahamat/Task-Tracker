@@ -14,20 +14,18 @@ $form = ActiveForm::begin([
     ])
 ]);
 ?>	
-	<h4>Выполнение</h4>
+	<h4>Приоритет</h4>
 	<div class="form-group">		
-		<?= Html::submitButton('Делать', ['class' => 'btn btn-primary', 'name' => 'do']) ?>
+		<?= Html::submitButton('В работе', ['class' => 'btn btn-primary', 'name' => 'do']) ?>
         <?= Html::submitButton('Выполнено', ['class' => 'btn btn-success', 'name' => 'success']) ?>
         <?= Html::submitButton('Завершено не успешно', ['class' => 'btn btn-danger', 'name' => 'failed']) ?>
-        <?= Html::submitButton('Приостановить', ['class' => 'btn btn-warning', 'name' => 'pause']) ?>        
-    </div>
-    
-    <h4>Управление</h4>
-	<div class="form-group">
-    	<?= Html::submitButton('Открыть', ['class' => 'btn btn-secondary', 'name' => 'open']) ?>
-    	<?= Html::submitButton('Закрыть', ['class' => 'btn btn-success', 'name' => 'close']) ?>
+        <?= Html::submitButton('Приостановить', ['class' => 'btn btn-warning', 'name' => 'pause']) ?>
+        <?= Html::submitButton('Открыть', ['class' => 'btn btn-secondary', 'name' => 'open']) ?>
+        <?= Html::submitButton('Закрыть', ['class' => 'btn btn-success', 'name' => 'close']) ?>
         <?= Html::submitButton('Отменить', ['class' => 'btn btn-danger', 'name' => 'cancel']) ?>
     </div>
+    
+
    
 
 <?php ActiveForm::end(); ?>
