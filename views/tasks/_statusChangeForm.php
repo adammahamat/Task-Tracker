@@ -18,7 +18,7 @@ $form = ActiveForm::begin([
 	<div class="form-group">		
 		<?= Html::submitButton('В работе', ['class' => 'btn btn-primary', 'name' => 'do']) ?>
         <?= Html::submitButton('Выполнено', ['class' => 'btn btn-success', 'name' => 'success']) ?>
-        <?= Html::submitButton('Завершено не успешно', ['class' => 'btn btn-danger', 'name' => 'failed']) ?>
+        <?= Html::submitButton('Ошибка', ['class' => 'btn btn-danger', 'name' => 'failed']) ?>
         <?= Html::submitButton('Приостановить', ['class' => 'btn btn-warning', 'name' => 'pause']) ?>
         <?= Html::submitButton('Открыть', ['class' => 'btn btn-secondary', 'name' => 'open']) ?>
         <?= Html::submitButton('Закрыть', ['class' => 'btn btn-success', 'name' => 'close']) ?>
