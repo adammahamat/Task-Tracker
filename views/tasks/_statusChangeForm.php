@@ -14,7 +14,7 @@ $form = ActiveForm::begin([
     ])
 ]);
 ?>	
-	<h4>Приоритет</h4>
+	<h4>Статус</h4>
 	<div class="form-group">		
 		<?= Html::submitButton('В работе', ['class' => 'btn btn-primary', 'name' => 'do']) ?>
         <?= Html::submitButton('Выполнено', ['class' => 'btn btn-success', 'name' => 'success']) ?>
