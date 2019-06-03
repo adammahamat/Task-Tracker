@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\models\ImageUpload;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -257,6 +258,12 @@ class TasksController extends Controller
         }
     }
 
+    public function actionImage()
+    {
+     $model = new ImageUpload();
+        return $this->render('image', ['model'=>$model]);
+
+    }
     /**
      * Finds the Tasks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
