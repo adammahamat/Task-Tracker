@@ -17,6 +17,7 @@ use yii\web\NotFoundHttpException;
 use app\models\Task_status;
 use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
+use yii\web\UploadedFile;
 
 /**
  * TasksController implements the CRUD actions for Tasks model.
@@ -261,6 +262,10 @@ class TasksController extends Controller
     public function actionImage()
     {
      $model = new ImageUpload();
+     if(Yii::$app->request->isPost) {
+         $file = UploadedFile::getInstance($model, 'image');
+         $model->uploadfile($file);
+     }
         return $this->render('image', ['model'=>$model]);
 
     }
