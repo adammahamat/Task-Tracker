@@ -259,14 +259,19 @@ class TasksController extends Controller
         }
     }
 
-    public function actionImage()
+    public function actionImage($id)
     {
-     $model = new ImageUpload();
-     if(Yii::$app->request->isPost) {
-         $file = UploadedFile::getInstance($model, 'image');
-         $model->uploadfile($file);
-     }
-        return $this->render('image', ['model'=>$model]);
+        $model = new ImageUpload();
+        if (Yii::$app->request->isPost) {
+
+            $task = $this->findModel($id);
+
+            $file = UploadedFile::getInstance($model, 'image');
+
+
+            $task->saveImage( $model->uploadfile($file));
+        }
+        return $this->render('image', ['model' => $model]);
 
     }
     /**

@@ -11,7 +11,10 @@ class ImageUpload extends Model {
 
     public function uploadfile(UploadedFile $file) {
 
-        $file->saveAs(yii::getAlias('@web').'uploads/'.$file->name);
+        $this->image = $file;
+$filename = strtolower(md5(uniqid($file->baseName)) . '.' . $file->extension);
+        $file->saveAs(yii::getAlias('@web') . 'uploads/' . $file->name);
+return $filename;
     }
 
 }

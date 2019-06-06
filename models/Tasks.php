@@ -157,6 +157,11 @@ class Tasks extends ActiveRecord
         ]);
     }
 
+    public function saveImage($filesname) {
+
+        $this->image = $filesname;
+        return $this->save(false);
+    }
     /**
      *
      * @return \yii\db\ActiveQuery
