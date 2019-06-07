@@ -30,14 +30,14 @@ use yii\helpers\Url;
             }],
             ['attribute' =>'start_date', 'label'=>'Начато', 'value'=>function($data) {
                 if($data->start_date!=''){
-                    return (new DateTime($data->start_date))->format('d.m.Y');
+                    return (new DateTime($data->start_date))->format('Y-m-d H:i:s');
                 }else{
                     return null;
                 }
             }],
             ['attribute' =>'end_date', 'label'=>'Завершено', 'value'=>function($data) {
                 if($data->start_date!=''){
-                    return (new DateTime($data->end_date))->format('d.m.Y');
+                    return (new DateTime($data->end_date))->format('Y-m-d H:i:s');
                 }else{
                     return null;
                 }

@@ -241,10 +241,10 @@ class TasksController extends Controller
         if ($status) {
             $model->task_status_id = $status->id;
             if ($status->action_key === 'do') {
-                $model->start_date = date('Y-m-d');
+                $model->start_date = date('Y-m-d H:i:s');
             } elseif (($status->action_key === 'success') || ($status->action_key === 'failed')) {
                 
-                $model->end_date = date('Y-m-d');
+                $model->end_date = date('Y-m-d H:i:s');
             }            
             if ($model->save()) {
                 return $this->redirect([
