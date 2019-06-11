@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' =>'taskStatus.status','label'=>'Статус'],
         ],
     ]) ?>
-    <?= Html::a('Загрузить файл', ['image', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
+    <?= Html::a('Загрузить', ['image', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
 
     <?= $this->render('_statusChangeForm', [
         'model' => $model        
