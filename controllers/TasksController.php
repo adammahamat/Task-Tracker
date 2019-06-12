@@ -136,6 +136,13 @@ class TasksController extends Controller
         $model = new Tasks();
         
         if ($model->load(Yii::$app->request->post())) {
+
+           //////
+            $imageName = $model->task_name;
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/',$imageName.'.'.$model->file->extension);
+
+          ///////
             $model->creator_id = Yii::$app->user->identity->getId();
             if ($model->save()) {
                 return $this->redirect([
@@ -259,21 +266,6 @@ class TasksController extends Controller
         }
     }
 
-    public function actionImage($id)
-    {
-        $model = new ImageUpload();
-        if (Yii::$app->request->isPost) {
-
-            $task = $this->findModel($id);
-
-            $file = UploadedFile::getInstance($model, 'image');
-
-
-            $task->saveImage( $model->uploadfile($file));
-        }
-        return $this->render('image', ['model' => $model]);
-
-    }
     /**
      * Finds the Tasks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

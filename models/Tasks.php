@@ -29,6 +29,7 @@ class Tasks extends ActiveRecord
      *
      * {@inheritdoc}
      */
+    public $file;
     public static function tableName()
     {
         return 'tasks';
@@ -53,10 +54,14 @@ class Tasks extends ActiveRecord
             ],
             [
                 [
-                    'description'
+                    'description',
+                    'image'
                 ],
                 'string'
             ],
+            [[
+                'file'
+            ], 'file'],
             [
                 [
                     'creator_id',
@@ -131,7 +136,8 @@ class Tasks extends ActiveRecord
             'deadLine_date' => 'Выполнить до',
             'start_date' => 'Начата',
             'end_date' => 'Завершена',
-            'task_status_id' => 'Статус'
+            'task_status_id' => 'Статус',
+            'file' => 'Загрузить файл'
         ];
     }
 

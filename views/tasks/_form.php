@@ -15,7 +15,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'task_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>    
+    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'file')->fileInput() ?>
 
     <?= $form->field($model, 'worker_id')->dropDownList(ArrayHelper::map($workers,'id','fio')) ?>
 
