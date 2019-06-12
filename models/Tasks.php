@@ -11,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $task_name
  * @property string $description
+ * @property string $image
  * @property int $creator_id
  * @property int $worker_id
  * @property string $deadLine_date
@@ -46,6 +47,7 @@ class Tasks extends ActiveRecord
                 [
                     'task_name',
                     'description',
+                    'image',
                     'creator_id',
                     'worker_id',
                     'deadLine_date'
