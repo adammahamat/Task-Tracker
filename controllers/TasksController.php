@@ -267,6 +267,25 @@ class TasksController extends Controller
     }
 
     /**
+     * @param $id
+     * @return string
+     */
+    public function actionImage($id)
+    {
+        $model = new ImageUpload();
+
+        if (Yii::$app->request->isPost) {
+
+            $task = $this->findModel($id);
+            $file = UploadedFile::getInstance($model, 'image');
+
+             $task->saveImage($model->uploadfile($file));
+
+        }
+        return $this->render('image', ['model' => $model]);
+
+    }
+    /**
      * Finds the Tasks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
