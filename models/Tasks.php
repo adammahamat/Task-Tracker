@@ -11,7 +11,6 @@ use Yii;
  * @property int $id
  * @property string $task_name
  * @property string $description
- * @property string $image
  * @property int $creator_id
  * @property int $worker_id
  * @property string $deadLine_date
@@ -43,52 +42,45 @@ class Tasks extends ActiveRecord
     public function rules()
     {
         return [
-            [
-                [
+            [[
                     'task_name',
                     'description',
-                    'image',
                     'creator_id',
                     'worker_id',
                     'deadLine_date'
                 ],
                 'required'
             ],
-            [
-                [
+            [[
                     'description',
-                    'image'
                 ],
                 'string'
             ],
             [[
                 'file'
             ], 'file'],
-            [
-                [
+            [[
                     'creator_id',
                     'worker_id',
                     'task_status_id'
                 ],
                 'integer'
             ],
-            [
-                [
+            [[
                     'deadLine_date',
                     'start_date',
                     'end_date'
                 ],
                 'safe'
             ],
-            [
-                [
-                    'task_name'
+            [[
+                    'task_name',
+                    'logo'
                 ],
                 'string',
                 'max' => 256
             ],
-            [
-                [
+            [[
                     'task_status_id'
                 ],
                 'exist',
@@ -98,8 +90,7 @@ class Tasks extends ActiveRecord
                     'task_status_id' => 'id'
                 ]
             ],
-            [
-                [
+            [[
                     'creator_id'
                 ],
                 'exist',
@@ -109,8 +100,7 @@ class Tasks extends ActiveRecord
                     'creator_id' => 'id'
                 ]
             ],
-            [
-                [
+            [[
                     'worker_id'
                 ],
                 'exist',
@@ -139,7 +129,7 @@ class Tasks extends ActiveRecord
             'start_date' => 'Начата',
             'end_date' => 'Завершена',
             'task_status_id' => 'Статус',
-            'file' => 'Загрузить файл'
+            'file' => 'Загрузить'
         ];
     }
 
@@ -165,11 +155,7 @@ class Tasks extends ActiveRecord
         ]);
     }
 
-    public function saveImage($filesname) {
 
-        $this->image = $filesname;
-        return $this->save(false);
-    }
     /**
      *
      * @return \yii\db\ActiveQuery

@@ -1,8 +1,7 @@
 <?php
 namespace app\controllers;
 
-use app\models\ImageUpload;
-use Yii;
+ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -141,7 +140,7 @@ class TasksController extends Controller
             $imageName = $model->task_name;
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs('uploads/',$imageName.'.'.$model->file->extension);
-            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            $model->logo = 'uploads/'.$imageName.'.'.$model->file->extension;
 
           ///////
             $model->creator_id = Yii::$app->user->identity->getId();
@@ -267,25 +266,6 @@ class TasksController extends Controller
         }
     }
 
-    /**
-     * @param $id
-     * @return string
-     */
-    public function actionImage($id)
-    {
-        $model = new ImageUpload();
-
-        if (Yii::$app->request->isPost) {
-
-            $task = $this->findModel($id);
-            $file = UploadedFile::getInstance($model, 'image');
-
-             $task->saveImage($model->uploadfile($file));
-
-        }
-        return $this->render('image', ['model' => $model]);
-
-    }
     /**
      * Finds the Tasks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
