@@ -57,9 +57,6 @@ class Tasks extends ActiveRecord
                 'string'
             ],
             [[
-                'file'
-            ], 'file'],
-            [[
                     'creator_id',
                     'worker_id',
                     'task_status_id'
@@ -75,7 +72,6 @@ class Tasks extends ActiveRecord
             ],
             [[
                     'task_name',
-                    'logo'
                 ],
                 'string',
                 'max' => 256
