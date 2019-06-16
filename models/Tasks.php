@@ -11,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $task_name
  * @property string $description
+ * @property string $image
  * @property int $creator_id
  * @property int $worker_id
  * @property string $deadLine_date
@@ -29,6 +30,7 @@ class Tasks extends ActiveRecord
      *
      * {@inheritdoc}
      */
+    public $file;
     public static function tableName()
     {
         return 'tasks';
@@ -45,6 +47,7 @@ class Tasks extends ActiveRecord
                 [
                     'task_name',
                     'description',
+                    'image',
                     'creator_id',
                     'worker_id',
                     'deadLine_date'
@@ -53,10 +56,14 @@ class Tasks extends ActiveRecord
             ],
             [
                 [
-                    'description'
+                    'description',
+                    'image'
                 ],
                 'string'
             ],
+            [[
+                'file'
+            ], 'file'],
             [
                 [
                     'creator_id',
@@ -131,7 +138,8 @@ class Tasks extends ActiveRecord
             'deadLine_date' => 'Выполнить до',
             'start_date' => 'Начата',
             'end_date' => 'Завершена',
-            'task_status_id' => 'Статус'
+            'task_status_id' => 'Статус',
+            'file' => 'Загрузить файл'
         ];
     }
 

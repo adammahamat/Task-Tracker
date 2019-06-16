@@ -136,6 +136,14 @@ class TasksController extends Controller
         $model = new Tasks();
         
         if ($model->load(Yii::$app->request->post())) {
+
+           //////
+            $imageName = $model->task_name;
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/',$imageName.'.'.$model->file->extension);
+            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+
+          ///////
             $model->creator_id = Yii::$app->user->identity->getId();
             if ($model->save()) {
                 return $this->redirect([
