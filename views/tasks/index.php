@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?php  if(Yii::$app->user->can('admin') || Yii::$app->user->can('manager')){?>
+    <?php  if(!Yii::$app->user->can('admin') || Yii::$app->user->can('manager')){?>
     <p>
         <?= Html::a('Новая задача', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
