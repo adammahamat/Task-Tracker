@@ -11,7 +11,6 @@ use Yii;
  * @property int $id
  * @property string $task_name
  * @property string $description
- * @property string $image
  * @property int $creator_id
  * @property int $worker_id
  * @property string $deadLine_date
@@ -47,7 +46,6 @@ class Tasks extends ActiveRecord
                 [
                     'task_name',
                     'description',
-                    'image',
                     'creator_id',
                     'worker_id',
                     'deadLine_date'
@@ -57,7 +55,6 @@ class Tasks extends ActiveRecord
             [
                 [
                     'description',
-                    'image'
                 ],
                 'string'
             ],
@@ -165,11 +162,6 @@ class Tasks extends ActiveRecord
         ]);
     }
 
-    public function saveImage($filesname) {
-
-        $this->image = $filesname;
-        return $this->save(false);
-    }
     /**
      *
      * @return \yii\db\ActiveQuery
