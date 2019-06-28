@@ -21,7 +21,7 @@ $form = ActiveForm::begin([
         <?= Html::submitButton('Ошибка', ['class' => 'btn btn-danger', 'name' => 'failed']) ?>
         <?= Html::submitButton('На тесте', ['class' => 'btn btn-warning', 'name' => 'pause']) ?>
         <?= Html::submitButton('Открыто', ['class' => 'btn btn-secondary', 'name' => 'open']) ?>
-        <?= Html::submitButton('Закрыть', ['class' => 'btn btn-success', 'name' => 'close']) ?>
+        <?= Html::submitButton('Протестировано', ['class' => 'btn btn-success', 'name' => 'close']) ?>
         <?= Html::submitButton('Отменить', ['class' => 'btn btn-danger', 'name' => 'cancel']) ?>
     </div>
     
