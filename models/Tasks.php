@@ -117,7 +117,7 @@ class Tasks extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'task_name' => 'Задача',
+            'task_name' => 'Заголовок',
             'description' => 'Описание',
             'creator_id' => 'Создал',
             'worker_id' => 'Исполнитель',
