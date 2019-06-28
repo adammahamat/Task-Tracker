@@ -10,7 +10,7 @@ $this->title = 'Содать задачи';
 $this->params['breadcrumbs'][] = ['label' => 'Задачи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tasks-create">На тесте
+<div class="tasks-create">Открыто
 
     <h1><?= Html::encode($this->title) ?></h1>
 
